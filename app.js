@@ -1,15 +1,15 @@
-// Possibility cone: a branching random walk pruned by what has already happened.
+// Brownian fan chart: a branching random walk pruned by what has already happened.
 //
 // Port of a raylib demo. Every root->leaf path is one complete possible future;
 // as the present line advances, reality takes one branch and everything on the
-// other side of it stops being a possible future (Bayes as set arithmetic on a
-// tree, not reweighting). See main.cpp in this repo for the original C version
-// and a fuller explanation of the tree/heap layout used below.
+// other side of it stops being a possible future -- Bayes' rule, applied directly
+// to the tree instead of a formula. See main.cpp in this repo for the original C
+// version and a fuller explanation of the tree/heap layout used below.
 
 (() => {
-  const DEPTH = 11; // time steps; leaves = 2^11 = 2048 possible histories
+  const DEPTH = 10; // time steps; leaves = 2^10 = 1024 possible histories
   const NODES = 1 << (DEPTH + 1); // heap layout, 1-based: root = 1, children of i are 2i, 2i+1
-  const START_YEAR = 2000;
+  const START_YEAR = 2016;
   let PAD_X = 56;
   let PAD_TOP = 40;
   let PAD_BOTTOM = 36;
@@ -17,7 +17,7 @@
   const COLOR_DEAD = "rgba(111, 118, 144, 0.28)";
   const COLOR_LIVE = "rgba(90, 200, 255, 0.55)";
   const COLOR_TRUTH = "#ffb23c";
-  const COLOR_PRESENT = "#facc15";
+  const COLOR_PRESENT = "#ef4444";
   const COLOR_AXIS = "rgba(255, 255, 255, 0.18)";
   const COLOR_AXIS_TEXT = "rgba(255, 255, 255, 0.4)";
 
@@ -146,7 +146,7 @@
       const isNow = d === dNow;
       if (d % labelStep !== 0 && !isNow) continue;
       const x = xAt(d);
-      ctx.fillStyle = isNow ? "rgba(250, 204, 21, 0.85)" : COLOR_AXIS_TEXT;
+      ctx.fillStyle = isNow ? "rgba(239, 68, 68, 0.9)" : COLOR_AXIS_TEXT;
       ctx.fillText(String(START_YEAR + d), snap(x), cssHeight - PAD_BOTTOM + 8);
     }
   }
@@ -204,7 +204,7 @@
     const bottom = cssHeight - PAD_BOTTOM * 0.55;
 
     ctx.save();
-    ctx.shadowColor = "rgba(250, 204, 21, 0.55)";
+    ctx.shadowColor = "rgba(239, 68, 68, 0.55)";
     ctx.shadowBlur = 6;
     ctx.fillStyle = COLOR_PRESENT;
     ctx.fillRect(x - width / 2, top, width, bottom - top);

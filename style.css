@@ -8,7 +8,8 @@
   --accent-live: #5ac8ff;
   --accent-dead: #6f7690;
   --accent-truth: #ffb23c;
-  --accent-present: #facc15;
+  --accent-present: #ef4444;
+  --accent-present-hover: #f87171;
 }
 
 * {
@@ -145,13 +146,13 @@ html, body {
 
 .btn.primary {
   background: var(--accent-present);
-  color: #1a1400;
+  color: #fff;
   border-color: var(--accent-present);
   font-weight: 600;
 }
 
 .btn.primary:hover {
-  background: #ffde3d;
+  background: var(--accent-present-hover);
 }
 
 .btn.icon {
@@ -237,12 +238,27 @@ html, body {
 .footer {
   margin-top: 22px;
   color: var(--text-dim);
+}
+
+.footer .explain {
+  margin: 0;
   font-size: 13px;
   line-height: 1.6;
 }
 
-.footer p {
-  margin: 0;
+.footer .hotkeys {
+  margin: 10px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  opacity: 0.85;
+}
+
+.footer .credit {
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--panel-border);
+  font-size: 12px;
+  opacity: 0.65;
 }
 
 @media (max-width: 520px) {

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Possibility Cone</title>
+<title>Brownian Fan Chart</title>
 <meta name="description" content="An interactive branching random walk that visualizes Bayesian pruning of possible futures by what has already happened." />
 <link rel="icon" href="data:," />
 <link rel="stylesheet" href="style.css" />
@@ -11,7 +11,7 @@
 <body>
   <div class="app">
     <header class="header">
-      <h1>Possibility Cone</h1>
+      <h1>Brownian Fan Chart</h1>
       <p class="subtitle">A branching random walk, pruned by what has already happened.</p>
     </header>
 
@@ -19,7 +19,7 @@
       <div class="chart-wrap">
         <canvas id="chart" aria-label="Branching random walk fan chart"></canvas>
         <div class="hud">
-          <div class="hud-year"><span id="yearLabel">2000</span></div>
+          <div class="hud-year"><span id="yearLabel">2016</span></div>
           <div class="hud-stats">
             <div id="futuresLabel" class="hud-line live"></div>
             <div id="eliminatedLabel" class="hud-line dead"></div>
@@ -47,12 +47,13 @@
     </div>
 
     <footer class="footer">
-      <p>
-        Every faint path is a future still consistent with what's happened so far. As the
-        <strong>present</strong> line moves forward, reality takes one branch and the rest are pruned —
-        Bayesian updating as set arithmetic on a tree, not reweighting.
-        Space to pause, ←/→ to scrub, ↑/↓ for speed, R to reseed.
+      <p class="explain">
+        Every faint line is a future still possible given what's already happened. As the
+        <strong>present</strong> moves forward, reality commits to one branch and the rest are ruled
+        out — Bayes' rule, played out on a tree instead of a formula.
       </p>
+      <p class="hotkeys">Space pause · ←/→ scrub · ↑/↓ speed · R reseed</p>
+      <p class="credit">Aalhad Sawane · 2026</p>
     </footer>
   </div>
 

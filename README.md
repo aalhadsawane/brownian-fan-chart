@@ -1,10 +1,9 @@
-# Possibility Cone
+# Brownian Fan Chart
 
 An interactive fan chart of a branching random walk, pruned by what has already
-happened. Every root→leaf path is one complete possible future; as the yellow
+happened. Every root→leaf path is one complete possible future; as the red
 **present** line advances, reality takes one branch and everything on the other
-side of it is eliminated — Bayesian updating as set arithmetic on a tree, not
-reweighting.
+side of it is ruled out — Bayes' rule, played out on a tree instead of a formula.
 
 This is a browser port (`index.html` / `style.css` / `app.js`, no build step,
 no dependencies) of the original raylib/C demo in `main.cpp`.
